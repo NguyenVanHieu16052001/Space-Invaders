@@ -10,8 +10,6 @@ def check(x1,y1,x2,y2):
 # Lay ten nguoi choi 
 def get_Start():
     name =''
-    name_Change = ''
-    name_Del = 0
 
     text_Name = pygame.image.load('name.png')
     text_Exit = pygame.image.load('exit.png')
