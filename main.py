@@ -88,12 +88,12 @@ def main_Proces():
     bullet = pygame.image.load('bullet.png')
     bullet_X = 0
     bullet_Y = 512
+    bullet_State = True
 
     enemy = pygame.image.load('enemy.png')
     enemy_X = [10,100,210,310,410]
     enemy_Y = [1,1,1,1,1]
     enemy_Change_X = [5,5,5,5,5]
-    bullet_State = True
 
     player = pygame.image.load('player.png')
     player_X = 320
