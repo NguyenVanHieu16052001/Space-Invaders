@@ -132,7 +132,7 @@ def main_Proces():
                     pygame.mixer.quit()
                     pygame.font.quit()
                     sys.exit()
-            if event.type == 768 :
+            if event.type == 768 and run:
                 if event.key == 1073741904:
                     player_Change = -5
                 if event.key == 1073741903:
@@ -141,7 +141,7 @@ def main_Proces():
                     bullet_Sound.play()
                     bullet_State = False
                     bullet_X = player_X
-            if event.type == 769:
+            if event.type == 769 and run:
                 if event.key == 1073741904 or event.key == 1073741903:
                     player_Change = 0
         if run:
