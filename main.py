@@ -17,7 +17,7 @@ def get_Start():
     
 
     pygame.mixer.music.load('bg.mp3')
-    pygame.mixer.music.play(-1,0,5)
+    pygame.mixer.music.play(-1)
 
     screen.fill((0,0,0))
     bg = pygame.image.load('bg.jpg')
