@@ -114,26 +114,24 @@ def main_Proces():
                 pygame.mixer.quit()
                 pygame.font.quit()
                 sys.exit()
-            if event.type == 1025:
+            if event.type == 1025 and run == False:
                 mouse_X = event.pos[0]
                 mouse_Y = event.pos[1]
                 if mouse_X > 300 and mouse_X < 410 and mouse_Y > 380 and mouse_Y < 430:
-                    if run == False:
-                        run = True 
-                        score = 0
-                        pygame.mixer.music.play(-1)
-                        run = True
-                        player_X = 320
-                        player_Y = 512
-                        enemy_X = [10,100,210,310,410]
-                        enemy_Y = [1,1,1,1,1]
-                        enemy_Change_X = [5,5,5,5,5]
+                    run = True 
+                    score = 0
+                    pygame.mixer.music.play(-1)
+                    run = True
+                    player_X = 320
+                    player_Y = 512
+                    enemy_X = [10,100,210,310,410]
+                    enemy_Y = [1,1,1,1,1]
+                    enemy_Change_X = [5,5,5,5,5]
                 if mouse_X > 300 and mouse_X < 410 and mouse_Y > 440 and mouse_Y < 590:
-                    if run == False:
-                        pygame.display.quit()
-                        pygame.mixer.quit()
-                        pygame.font.quit()
-                        sys.exit()
+                    pygame.display.quit()
+                    pygame.mixer.quit()
+                    pygame.font.quit()
+                    sys.exit()
             if event.type == 768 :
                 if event.key == 1073741904:
                     player_Change = -5
