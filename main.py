@@ -146,19 +146,23 @@ def main_Proces():
             if event.type == 769:
                 if event.key == 1073741904 or event.key == 1073741903:
                     player_Change = 0
-        player_X += player_Change
-        if player_X <= 0:
-            player_X = 0
-        elif player_X >= 640:
-            player_X = 640
-
-        if bullet_State == False:
-            screen.blit(bullet,(bullet_X,bullet_Y))
-            bullet_Y -= 20
-            if bullet_Y <= 10:
-                bullet_State = True
-                bullet_Y = 512
         if run:
+            player_X += player_Change
+            if player_X <= 0:
+                player_X = 0
+            elif player_X >= 640:
+                player_X = 640
+            screen.blit(player,(player_X,player_Y))
+        
+            if bullet_State == False:
+                screen.blit(bullet,(bullet_X,bullet_Y))
+                bullet_Y -= 20
+                if bullet_Y <= 10:
+                    bullet_State = True
+                    bullet_Y = 512
+                    
+            for i in range(5):   
+                screen.blit(enemy,(enemy_X[i],enemy_Y[i]))            
             for i in range(5):
                 enemy_X[i] += enemy_Change_X[i]
                 if enemy_X[i] > 640:
@@ -171,25 +175,21 @@ def main_Proces():
                     run = False
                     pygame.mixer.music.pause()
                     lose.play()
-                    
-        if run:
-            for i in range(5):   
-                screen.blit(enemy,(enemy_X[i],enemy_Y[i]))
-            screen.blit(player,(player_X,player_Y))
+            
+            for i in range(5):
+                if check(enemy_X[i],enemy_Y[i],bullet_X,bullet_Y):
+                    explosion.play()
+                    bullet_State = True
+                    enemy_X[i] = 10
+                    enemy_Y[i] = 1
+                    enemy_Change_X[i] = 5
+                    bullet_Y = 512
+                    if score < 1000:
+                        score += 1
         else :
             screen.blit(loss,(0,0))
             screen.blit(text_Replay,(300,380))
             screen.blit(text_Exit,(300,440))
-        for i in range(5):
-            if check(enemy_X[i],enemy_Y[i],bullet_X,bullet_Y):
-                explosion.play()
-                bullet_State = True
-                enemy_X[i] = 10
-                enemy_Y[i] = 1
-                enemy_Change_X[i] = 5
-                bullet_Y = 512
-                if score < 1000:
-                    score += 1
         show_Score = font.render("Score : " + str(score), True, (255, 255, 255))
         screen.blit(show_Score, (10, 10))
         pygame.display.update()
