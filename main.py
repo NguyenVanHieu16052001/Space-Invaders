@@ -175,7 +175,7 @@ def main_Proces():
         if run:
             for i in range(5):   
                 screen.blit(enemy,(enemy_X[i],enemy_Y[i]))
-                screen.blit(player,(player_X,player_Y))
+            screen.blit(player,(player_X,player_Y))
         else :
             screen.blit(loss,(0,0))
             screen.blit(text_Replay,(300,380))
